@@ -14,17 +14,20 @@ df = pd.concat([df_2, df_1, df0], ignore_index=True)
 df = df[df['product'] == product]
 
 
-window_size = 10000
-df['moving_avg'] = df['ask_price_1'].rolling(window_size).mean()
+window_size = 500
+df['moving_avg'] = df['bid_price_1'].rolling(window_size).mean()
+df['moving_avg2'] = df['ask_price_1'].rolling(window_size).mean()
 fig, ax = plt.subplots() 
+ax.plot(df['timestamp'], df['bid_price_1'])
 ax.plot(df['timestamp'], df['ask_price_1'])
 # ax.plot(df['timestamp'], df['ask_price_1'])
 ax.plot(df['timestamp'], df['moving_avg'])
+ax.plot(df['timestamp'], df['moving_avg2'])
 # plt.plot(df['timestamp'], df['profit_and_loss'])
-if product == 'BANANAS':
-	ax.set_ylim(4850, 5020)
-elif product == 'PEARLS':
-	ax.set_ylim(9980, 10020)
+# if product == 'BANANAS':
+# 	ax.set_ylim(4850, 5020)
+# elif product == 'PEARLS':
+# 	ax.set_ylim(9980, 10020)
 
 
 plt.show()
