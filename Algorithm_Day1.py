@@ -27,10 +27,10 @@ class Trader:
                 # Note that this value of 1 is just a dummy value, you should likely change it!
                 acceptable_price = 9996.81
 
+                #### MAKE THIS A WHILE LOOP WHILE MIN POSITION IS < 20
+
                 # If statement checks if there are any SELL orders in the PEARLS market
                 if len(order_depth.sell_orders) > 0:
-
-                    #### MAKE THIS A WHILE LOOP WHILE MIN POSITION IS < 20
 
                     # Sort all the available sell orders by their price,
                     # and select only the sell order with the lowest price
@@ -39,8 +39,6 @@ class Trader:
 
                     # Check if the lowest ask (sell order) is lower than the above defined fair value
                     if best_ask < acceptable_price:
-
-                        #### MAKE THIS A WHILE LOOP WHILE MAX POSITION IS > 20
 
                         # In case the lowest ask is lower than our fair value,
                         # This presents an opportunity for us to buy cheaply
@@ -54,7 +52,11 @@ class Trader:
                 # the difference is that it finds the highest bid (buy order)
                 # If the price of the order is higher than the fair value
                 # This is an opportunity to sell at a premium
+
                 if len(order_depth.buy_orders) != 0:
+
+                    #### MAKE THIS A WHILE LOOP WHILE MAX POSITION IS > 20
+
                     best_bid = max(order_depth.buy_orders.keys())
                     best_bid_volume = order_depth.buy_orders[best_bid]
                     if best_bid > acceptable_price:
