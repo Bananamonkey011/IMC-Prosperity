@@ -9,7 +9,7 @@ df_1['timestamp'] = df_1['timestamp'] + 1000000
 df0['timestamp'] = df0['timestamp'] + 2000000
 # Filter the DataFrame to only include data for a specific timestamp and product
 # timestamp = '100' # Change this to the desired timestamp
-product = 'BANANAS' # Change this to the desired product
+product = 'PEARLS' # Change this to the desired product
 df = pd.concat([df_2, df_1, df0], ignore_index=True)
 df = df[df['product'] == product]
 
